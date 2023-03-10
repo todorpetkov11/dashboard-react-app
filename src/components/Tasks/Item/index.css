@@ -1,0 +1,23 @@
+.employees-list-item {
+    display: flex;
+    background-color: inherit;
+    align-items: center;
+    padding: 0.4rem 0.5rem;
+    border-bottom: 1px solid var(--color-black);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.employee-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.employees-list-item:hover {
+    background-color: var(--color-hover);
+    border-color: var(--color-hover);
+    color: var(--color-white);
+}

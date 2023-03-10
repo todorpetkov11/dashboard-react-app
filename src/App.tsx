@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './components/Home';
+import Tasks from './components/Tasks';
+import Employees from './components/Employees';
+import Rankings from './components/Rankings';
+import EmployeeDetails from './components/Employees/Details';
+import TaskDetails from './components/Tasks/Details';
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path='tasks' element={<Tasks />}>
+            <Route path=':taskId/details' element={<TaskDetails />}></Route>
+          </Route>
+          <Route path='employees' element={<Employees />}>
+            <Route path=':employeeId/details' element={<EmployeeDetails />}></Route>
+          </Route>
+          <Route path='rankings' element={<Rankings />}></Route>
+        </Route>
+
+      </Routes>
     </div>
+
   );
 }
 
