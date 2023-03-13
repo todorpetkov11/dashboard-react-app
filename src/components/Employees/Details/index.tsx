@@ -1,27 +1,49 @@
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import EmployeeService from "../../../services/EmployeesService";
+import IEmployee from "../../../types/Employee";
 import "./index.css";
 
 
 function EmployeeDetails() {
 
+    const id = useParams().employeeId;
     const navigate = useNavigate();
+    const [employee, setEmployee] = useState<IEmployee>();
+
+    useEffect(() => {
+        if (id) {
+            getEmployee(id);
+        };
+    }, [id]);
+
+    const getEmployee = (id: string) => {
+        EmployeeService.get(id)
+            .then((response: any) => {
+                console.log(response)
+                setEmployee(response.data)
+            })
+            .catch((e: Error) => {
+                console.log(e)
+            });
+    };
 
     return (
         <div className="popup-container">
-            <div className="fog" onClick={() => { navigate(-1) }}></div>
-            <div className="popup-wrapper">
-                <h2 className="page-name">Employee details</h2>
+            {employee && <div className="popup-wrapper">
+                <h2 className="page-name">{employee.name}</h2>
                 <div className="page-content">
-                    <h4 className="employee-name">Todor Petkov</h4>
-                    <p className="employee-salary">$500</p>
-                    <p className="employee-birthdate">01.01.2001</p>
-                    <p className="employee-status">Active</p>
-                    <p className="employee-completed-tasks">24</p>
-                    <p className="employee-email">todor@abv.bg</p>
-                    <p className="employee-phone">0888674224</p>
+                    <p className="paragraph employee-birthdate"><span className="label">Birthday: </span>{employee.birthday}</p>
+                    <p className="paragraph employee-email"><span className="label">Email: </span>{employee.email}</p>
+                    <p className="paragraph employee-phone"><span className="label">Phone number: </span>{employee.phone}</p>
+                    <p className="paragraph employee-salary"><span className="label">Salary: </span>${employee.salary}</p>
+                    <p className="paragraph employee-completed-tasks"><span className="label">Completed tasks: </span>{employee.completedTasks}</p>
                 </div>
+                <div className="edit-actions">
+                    <button type="button" className="btn cancel" onClick={() => { navigate(-1) }}>Close</button>
+                </div>
+            </div>}
 
-            </div>
 
         </div>
     );

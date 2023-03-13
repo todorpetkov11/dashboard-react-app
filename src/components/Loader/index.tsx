@@ -4,16 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
-function Loader() {
-  const [isLoading, setIsLoading] = useState(false);
+function Loader(props: { visible: boolean }) {
 
-  function setLoading() {
-    setTimeout(() => {
-      setIsLoading(!isLoading)
-    }, 1500)
-  };
+  // const [isLoading, setIsLoading] = useState(props.visible);
 
-  let location = useLocation();
+  const isLoading = props.visible;
+
+  // function setLoading() {
+  //   setTimeout(() => {
+  //     setIsLoading(!isLoading)
+  //   }, 1500)
+  // };
+
+  // let location = useLocation();
 
   // useEffect(() => {
   //   setLoading();

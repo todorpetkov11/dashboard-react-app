@@ -1,9 +1,12 @@
+.site-name {
+    font-family: Indie Flower, serif;
+}
+
 nav {
     margin: 0;
     background-color: var(--color-header);
     color: var(--color-white);
     width: 100%;
-    font-family: Nunito, sans-serif;
     text-align: right;
 }
 
@@ -23,12 +26,12 @@ nav {
 
 .nav-link.active {
     background-color: var(--color-black);
-    
+
 }
 
 .nav-list {
     display: flex;
-    padding: 2rem;
+    padding: 1rem;
     gap: 1rem;
 }
 

@@ -2,22 +2,42 @@ import './index.css'
 import { faCheck, faPen, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import ITask from '../../../types/Task';
+import TaskService from '../../../services/TasksService';
 
 
-function TasksListItem() {
+function TasksListItem(props: { task: ITask, refresh: () => void }) {
+
+    const task = props.task;
+
+
+    const deleteTask = (id: string) => {
+        TaskService.remove(id)
+            .then(() => { props.refresh() })
+            .catch((e: Error) => { console.log(e) });
+    };
+
     return (
-        <li className="employees-list-item">
-            <div className="employee-info">
-                <h4 className="employee-name">Do the dishes</h4>
-                <p className="employee-salary">$500</p>
-                <p className="employee-status"></p>
-            </div>
-            <div className="employee-actions">
-                <NavLink to={`${1}/details`}><FontAwesomeIcon icon={faPen} /></NavLink>
-                <FontAwesomeIcon icon={faCheck} />
-                <FontAwesomeIcon icon={faXmark} />
+        <li>
+            <div className="tasks-list-item">
+                <div className="task-info">
+                    <h3 className="task-name">{task.name}</h3>
+                    <div className='task-description'>
+                        {task.description}
+                    </div>
+                    <p className="task-assignee"><span>Assignee: </span>{task.assignee}</p>
+                    <p className="task-duedate"><span>Due date: </span>{task.duedate}</p>
+                </div>
+
+                <div className="task-actions">
+                    <NavLink to={`${task.id}/edit`}><FontAwesomeIcon icon={faPen} /></NavLink>
+                    {/* <FontAwesomeIcon icon={faCheck} /> */}
+                    <FontAwesomeIcon onClick={() => { deleteTask(task.id) }} icon={faXmark} />
+                </div>
+
             </div>
         </li>
+
     )
 };
 

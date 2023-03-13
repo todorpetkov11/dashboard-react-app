@@ -6,10 +6,10 @@ import "./index.css";
 
 
 function Layout() {
-    
+
     return (
         <div className="layout">
-            
+
             <Sidebar />
             <Outlet />
         </div>

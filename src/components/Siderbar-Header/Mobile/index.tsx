@@ -47,13 +47,13 @@ function MobileNav(props: MobileNavProps) {
                     <FontAwesomeIcon icon={faMedal} /> <span>Rankings</span>
                 </NavLink>
             </li>
-            <li className="nav-list-item">
+            {/* <li className="nav-list-item">
                 <NavLink onClick={onSelect} to={"/help"} className={({ isActive }) => {
                     if (isActive) return "nav-link active"
                     else return "nav-link"
                 }}><FontAwesomeIcon icon={faQuestionCircle} /> <span>Help</span>
                 </NavLink>
-            </li>
+            </li> */}
         </ul>
     );
 };

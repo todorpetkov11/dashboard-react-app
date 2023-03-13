@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;500;600;700&display=swap');
+
 
 :root {
     --color-white: #f0eeed;
     --color-header: #00A3E1;
-    --color-hover: #925ca1;
+    --color-hover: #00A3E1;
     --color-red: #C92C6D;
     --color-black: #383330;
     --color-light-grey: #b8d9e7;
-    background: linear-gradient(90deg, rgb(207, 236, 248) 0%, #eccdf5 100%, rgb(55, 167, 211) 100%);
+    --color-green: #2a9939;
+    --color-gold: #643e88;
+    --gradient: linear-gradient(90deg, rgb(207, 236, 248) 0%, #eccdf5 100%, rgb(55, 167, 211) 100%),
+    background: var(--gradient);
 }
 
 .container {
@@ -17,15 +22,20 @@
     border-radius: 0.5rem;
     color: var(--color-black);
     height: calc(100vh - 3rem);
-    overflow: hidden;
+    overflow-y: scroll;
     box-shadow: -1px 10px 30px 1px var(--color-black);
 }
 
 .page-name,
 .page-content {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     animation: fadeIn;
     animation-duration: 0.5s;
+}
+
+.page-actions {
+    display: flex;
+    justify-content: space-between;
 }
 
 @media screen and (min-width: 765px) {
@@ -38,13 +48,69 @@
 .btn {
     border: none;
     outline: none;
-    padding: 0;
-    margin: 0;
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
     color: var(--color-white);
+    cursor: pointer;
+}
+
+.nav {
     background-color: transparent;
+}
+
+.transparent {
+    background-color: transparent;
+    color: var(--color-black);
 }
 
 .btn:focus {
     outline: none;
-    background-color: transparent;
+}
+
+.submit {
+    background-color: var(--color-header);
+}
+
+.cancel {
+    background-color: var(--color-red);
+}
+
+.create {
+    background-color: var(--color-green);
+}
+
+.champion {
+    background-color: var(--color-gold);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+input,
+textarea {
+    border: 1px solid var(--color-header);
+    padding: 0.5rem;
+    margin: 0.3rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    outline: none;
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    background-color: var(--color-white);
+}
+
+@media screen and (min-width: 756px) {
+
+    input,
+    textarea {
+        width: 40%;
+    }
 }

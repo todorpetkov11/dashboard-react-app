@@ -1,0 +1,26 @@
+.rankings-list-item {
+    display: flex;
+    background-color: inherit;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    transition: 0.2s ease-in-out;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.rankings-name {
+    font-size: 1.2rem;
+}
+
+.rankings-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media screen and (max-width: 320px) {
+    .rankings-list-item {
+        flex-direction: column;
+    }
+}

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import './index.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faMedal, faNavicon, faTasks, faUserGroup, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faMedal, faNavicon, faTasks, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import MobileNav from "./Mobile";
 import { useState } from "react";
 
@@ -50,13 +50,13 @@ function Sidebar() {
                             <FontAwesomeIcon icon={faMedal} /> <span>Rankings</span>
                         </NavLink>
                     </li>
-                    <li className="nav-list-item">
+                    {/* <li className="nav-list-item">
                         <NavLink to={"/help"} className={({ isActive }) => {
                             if (isActive) return "nav-link active"
                             else return "nav-link"
                         }}><FontAwesomeIcon icon={faQuestionCircle} /> <span>Help</span>
                         </NavLink>
-                    </li>
+                    </li> */}
 
                 </ul>
                 <ul className="nav-list mobile">

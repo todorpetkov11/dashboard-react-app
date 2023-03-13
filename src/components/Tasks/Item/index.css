@@ -1,4 +1,4 @@
-.employees-list-item {
+.tasks-list-item {
     display: flex;
     background-color: inherit;
     align-items: center;
@@ -10,14 +10,41 @@
     justify-content: space-between;
 }
 
-.employee-actions {
+.task-actions {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    flex-shrink: 1;
 }
 
-.employees-list-item:hover {
+.tasks-list-item:hover {
     background-color: var(--color-hover);
     border-color: var(--color-hover);
     color: var(--color-white);
+}
+
+.task-assignee {
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.task-name {
+    font-weight: 700;
+}
+
+.task-duedate {
+    opacity: 0.8;
+}
+
+.task-description {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    flex-grow: 1;
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 320px) {
+    .tasks-list-item {
+        flex-direction: column;
+    }
 }

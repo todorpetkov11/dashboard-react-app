@@ -7,17 +7,31 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
     align-items: center;
-    justify-content: space-between;
 }
 
 .employee-actions {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    flex-shrink: 1;
+}
+
+.employee-info {
+    flex-grow: 1;
+}
+
+.employee-contacts {
+    margin: 1rem;
 }
 
 .employees-list-item:hover {
     background-color: var(--color-hover);
     border-color: var(--color-hover);
     color: var(--color-white);
+}
+
+@media screen and (max-width: 320px) {
+    .employees-list-item {
+        flex-direction: column;
+    }
 }

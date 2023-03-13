@@ -2,4 +2,10 @@
     .layout {
         display: flex;
     }
-}
+
+    .sidebar {
+        animation-name: fadeIn;
+        animation-duration: 4s;
+    }
+
+};
